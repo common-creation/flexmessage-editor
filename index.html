@@ -19,70 +19,74 @@
 
 <!-- FlexmessageのJSONテンプレート -->
 <script type="text/javascript">
-  var baseJson = `{
-    "type": "bubble",
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "weight": "bold",
-          "margin": "md",
-          "text": "<<title>>",
-          "type": "text",
-          "size": "lg",
-          "wrap": true
-        },
-        {
-          "type": "separator",
-          "margin": "xxl"
-        },
-        {
-          "layout": "vertical",
-          "margin": "xxl",
-          "spacing": "sm",
-          "type": "box",
-          "alignItems": "flex-start",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": <<contents>>
-            }
-          ]
-        }
-      ]
-    },
-    "styles": {
-      "footer": {
-        "separator": true
+  var baseJson = `
+{
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "weight": "bold",
+        "margin": "md",
+        "text": "<<title>>",
+        "type": "text",
+        "size": "lg",
+        "wrap": true
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "layout": "vertical",
+        "margin": "xxl",
+        "spacing": "sm",
+        "type": "box",
+        "alignItems": "flex-start",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": <<contents>>
+          }
+        ]
       }
+    ]
+  },
+  "styles": {
+    "footer": {
+      "separator": true
     }
-  }`
+  }
+}
+`
   
-  var baseContentsItem = `{
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "<<template>>",
-                      "color": "#2D558F",
-                      "wrap": true,
-                      "align": "center"
-                    }
-                  ],
-                  "paddingStart": "xl",
-                  "paddingEnd": "xl",
-                  "paddingTop": "md",
-                  "paddingBottom": "md",
-                  "action": {
-                    "type": "postback",
-                    "label": "<<template>>",
-                    "data": "",
-                    "displayText": "<<template>>"
-                  }
-                }`
+  var baseContentsItem = `
+{
+  "type": "box",
+  "layout": "vertical",
+  "contents": [
+    {
+      "type": "text",
+      "text": "<<template>>",
+      "color": "#2D558F",
+      "wrap": true,
+      "align": "center"
+    }
+  ],
+  "paddingStart": "xl",
+  "paddingEnd": "xl",
+  "paddingTop": "md",
+  "paddingBottom": "md",
+  "action": {
+    "type": "postback",
+    "label": "<<template>>",
+    "data": "",
+    "displayText": "<<template>>"
+  }
+}
+`
   // テンプレートを使ってjsonを生成する
   generateJson = function (title, labelArray) {
     var contents = []
